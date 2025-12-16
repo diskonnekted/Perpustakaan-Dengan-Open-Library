@@ -61,6 +61,10 @@ foreach ($keys as $key) {
                                 <div>
                                     <h3 class="font-semibold text-gray-900">Kepala Perpustakaan</h3>
                                     <p class="text-gray-600 mt-1"><?= htmlspecialchars($info['library_head']) ?></p>
+                                    <a href="uploads/info.pdf" target="_blank" class="inline-block mt-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded shadow transition flex items-center w-fit">
+                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        Info Perpusnas
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -98,13 +102,32 @@ foreach ($keys as $key) {
                                 </h3>
                                 <ul class="text-deep_space_blue space-y-1 text-sm">
                                     <li class="flex justify-between"><span>Senin - Kamis</span> <span class="font-semibold">08.00 - 16.00</span></li>
-                                    <li class="flex justify-between"><span>Jumat</span> <span class="font-semibold">08.00 - 14.30</span></li>
+                                    <li class="flex justify-between"><span>Jumat</span> <span class="font-semibold">08.00 - 11.00 & 13.00 - 16.00</span></li>
                                     <li class="flex justify-between"><span>Sabtu - Minggu</span> <span class="font-semibold">Tutup</span></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- PDF Embed Section -->
+                <div class="mt-12 pt-12 border-t border-gray-200">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        Dokumen Perpusnas
+                    </h2>
+                    <div class="w-full bg-gray-100 rounded-xl overflow-hidden shadow-inner border border-gray-200" style="height: 800px;">
+                        <object data="uploads/perpusnas.pdf" type="application/pdf" class="w-full h-full">
+                            <div class="flex flex-col items-center justify-center h-full text-gray-500">
+                                <p class="mb-4">Browser Anda tidak mendukung tampilan PDF.</p>
+                                <a href="uploads/perpusnas.pdf" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                                    Download PDF
+                                </a>
+                            </div>
+                        </object>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

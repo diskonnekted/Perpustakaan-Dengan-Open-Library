@@ -4,7 +4,7 @@
     $footer_addr = function_exists('getSetting') && isset($pdo) ? getSetting($pdo, 'library_address', 'Jl. Pendidikan No. 123, Jakarta') : 'Jl. Pendidikan No. 123, Jakarta';
     $footer_email = function_exists('getSetting') && isset($pdo) ? getSetting($pdo, 'library_email', 'info@perpustakaan.id') : 'info@perpustakaan.id';
     ?>
-    <footer class="bg-gray-800 text-gray-300 py-8">
+    <footer class="bg-mauve-900 text-white py-8">
         <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8">
             <div>
                 <h3 class="text-xl font-bold text-white mb-4"><?= htmlspecialchars($footer_name) ?></h3>
@@ -35,8 +35,8 @@
                 </ul>
             </div>
         </div>
-        <div class="text-center text-sm mt-8 pt-8 border-t border-deep_space_blue-600">
-            &copy; <?php echo date('Y'); ?> <?= htmlspecialchars($footer_name) ?>. All rights reserved<a href="/lib/admin/index.php" class="text-deep_space_blue hover:text-deep_space_blue-600">.</a>
+        <div class="text-center text-sm mt-8 pt-8 border-t border-mauve-800">
+            &copy; <?php echo date('Y'); ?> <?= htmlspecialchars($footer_name) ?>. All rights reserved<a href="/lib/admin/index.php" class="text-lemon_chiffon-400 hover:text-lemon_chiffon-300">.</a>
         </div>
     </footer>
 </body>

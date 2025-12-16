@@ -116,6 +116,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
+        // Handle Related Books
+        // 1. Clear existing books map
+        $pdo->prepare("DELETE FROM news_book_map WHERE news_id = ?")->execute([$id]);
+
+        // 2. Insert new books map
+        if (isset($_POST['related_books']) && is_array($_POST['related_books'])) {
+            $book_stmt = $pdo->prepare("INSERT INTO news_book_map (news_id, book_id) VALUES (?, ?)");
+            foreach ($_POST['related_books'] as $book_id) {
+                $book_stmt->execute([$id, (int)$book_id]);
+            }
+        }
+
         $pdo->commit();
         redirect('news.php');
 

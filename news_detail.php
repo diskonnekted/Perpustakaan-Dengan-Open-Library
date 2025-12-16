@@ -23,6 +23,11 @@ $stmt = $pdo->prepare("SELECT t.* FROM news_tags t JOIN news_tag_map m ON t.id =
 $stmt->execute([$news['id']]);
 $tags = $stmt->fetchAll();
 
+// Get Related Books
+$stmt = $pdo->prepare("SELECT b.* FROM books b JOIN news_book_map m ON b.id = m.book_id WHERE m.news_id = ?");
+$stmt->execute([$news['id']]);
+$attached_books = $stmt->fetchAll();
+
 // Get Related News
 $stmt = $pdo->prepare("SELECT title, slug, image, created_at FROM news WHERE category_id = ? AND id != ? AND status = 'published' ORDER BY created_at DESC LIMIT 3");
 $stmt->execute([$news['category_id'], $news['id']]);
@@ -64,6 +69,32 @@ $related_news = $stmt->fetchAll();
             <div class="prose max-w-none text-gray-800 leading-relaxed mb-8">
                 <?= nl2br(htmlspecialchars($news['content'])) ?>
             </div>
+
+            <?php if (count($attached_books) > 0): ?>
+                <div class="mb-8 p-4 bg-papaya_whip-500 rounded-lg border border-papaya_whip-400">
+                    <h3 class="text-sm font-bold text-gray-800 uppercase tracking-wide mb-3 flex items-center">
+                        <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                        Disebutkan dalam artikel ini
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <?php foreach ($attached_books as $book): ?>
+                            <a href="detail.php?id=<?= $book['id'] ?>" class="flex items-center bg-white p-2 rounded shadow-sm hover:shadow-md transition group">
+                                <div class="w-12 h-16 flex-shrink-0 bg-gray-200 overflow-hidden rounded">
+                                    <?php if ($book['cover_image']): ?>
+                                        <img src="uploads/covers/<?= htmlspecialchars($book['cover_image']) ?>" class="w-full h-full object-cover group-hover:scale-105 transition">
+                                    <?php else: ?>
+                                        <div class="w-full h-full flex items-center justify-center text-xs text-gray-400">No Img</div>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="font-bold text-sm text-gray-900 group-hover:text-blue-900 leading-tight"><?= htmlspecialchars($book['title']) ?></h4>
+                                    <p class="text-xs text-gray-600"><?= htmlspecialchars($book['author']) ?></p>
+                                </div>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
 
             <?php if (count($tags) > 0): ?>
                 <div class="border-t pt-6 mb-8">

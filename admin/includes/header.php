@@ -36,6 +36,13 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             <a href="categories.php" class="block px-4 py-3 rounded hover:bg-blue-800 transition <?= $currentPage == 'categories.php' ? 'bg-blue-800' : '' ?>">
                 Kategori Buku
             </a>
+            <div class="pt-2 pb-1 text-xs text-gray-400 uppercase px-4">Keanggotaan</div>
+            <a href="members.php" class="block px-4 py-3 rounded hover:bg-blue-800 transition <?= strpos($currentPage, 'member') !== false ? 'bg-blue-800' : '' ?>">
+                Kelola Anggota
+            </a>
+            <a href="loans.php" class="block px-4 py-3 rounded hover:bg-blue-800 transition <?= strpos($currentPage, 'loan') !== false ? 'bg-blue-800' : '' ?>">
+                Sirkulasi Peminjaman
+            </a>
             <div class="pt-2 pb-1 text-xs text-gray-400 uppercase px-4">Berita</div>
             <a href="news.php" class="block px-4 py-3 rounded hover:bg-blue-800 transition <?= strpos($currentPage, 'news.php') !== false || strpos($currentPage, 'news_form.php') !== false ? 'bg-blue-800' : '' ?>">
                 Kelola Berita

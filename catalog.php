@@ -95,21 +95,30 @@ $cats = $pdo->query("SELECT * FROM categories ORDER BY name")->fetchAll();
                                 </div>
                             <?php endif; ?>
                             
+                            <!-- Status Ribbons/Badges -->
+                            <?php if ($book['type'] == 'physical' && $book['stock'] <= 0): ?>
+                                <div class="absolute top-0 left-0 z-10">
+                                    <div class="bg-red-600 text-white text-[10px] font-bold px-6 py-1 shadow-md transform -rotate-45 -translate-x-7 translate-y-4 w-32 text-center border-2 border-white">
+                                        DIPINJAM
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+
                             <?php if ($book['type'] == 'digital'): ?>
-                                <span class="absolute top-2 right-2 bg-brick_red text-white text-xs font-bold px-2 py-1 rounded shadow">E-Book</span>
+                                <span class="absolute top-2 right-2 bg-baby_pink-600 text-white text-xs font-bold px-2 py-1 rounded shadow">E-Book</span>
                             <?php else: ?>
-                                <span class="absolute top-2 right-2 bg-deep_space_blue text-white text-xs font-bold px-2 py-1 rounded shadow">Fisik</span>
+                                <span class="absolute top-2 right-2 bg-icy_blue-600 text-white text-xs font-bold px-2 py-1 rounded shadow">Fisik</span>
                             <?php endif; ?>
                         </div>
                         <div class="p-3 flex-grow flex flex-col">
-                            <div class="text-xs text-brick_red font-semibold mb-1 uppercase tracking-wide truncate">
+                            <div class="text-xs text-mauve-600 font-semibold mb-1 uppercase tracking-wide truncate">
                                 <?= $book['category_name'] ? htmlspecialchars($book['category_name']) : 'Umum' ?>
                             </div>
-                            <h3 class="font-bold text-sm mb-1 text-gray-900 leading-tight line-clamp-2 group-hover:text-brick_red transition" title="<?= htmlspecialchars($book['title']) ?>"><?= htmlspecialchars($book['title']) ?></h3>
+                            <h3 class="font-bold text-sm mb-1 text-gray-900 leading-tight line-clamp-2 group-hover:text-baby_pink-600 transition" title="<?= htmlspecialchars($book['title']) ?>"><?= htmlspecialchars($book['title']) ?></h3>
                             <p class="text-xs text-gray-600 mb-2 line-clamp-1" title="<?= htmlspecialchars($book['author']) ?>"><?= htmlspecialchars($book['author']) ?></p>
                             
                             <div class="mt-auto pt-2 border-t border-gray-100">
-                                <a href="detail.php?id=<?= $book['id'] ?>" class="block w-full text-center bg-white border border-deep_space_blue text-deep_space_blue hover:bg-deep_space_blue hover:text-white text-xs font-bold py-2 rounded transition">
+                                <a href="detail.php?id=<?= $book['id'] ?>" class="block w-full text-center bg-white border border-icy_blue-600 text-icy_blue-600 hover:bg-icy_blue-600 hover:text-white text-xs font-bold py-2 rounded transition">
                                     Lihat Detail
                                 </a>
                             </div>

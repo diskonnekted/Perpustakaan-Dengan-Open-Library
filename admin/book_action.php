@@ -37,6 +37,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $type = $_POST['type'];
     $stock = (int)$_POST['stock'];
 
+    // New Fields
+    $translator = isset($_POST['translator']) ? sanitize($_POST['translator']) : null;
+    $isbn = isset($_POST['isbn']) ? sanitize($_POST['isbn']) : null;
+    $language = isset($_POST['language']) ? sanitize($_POST['language']) : 'id';
+    $pages = isset($_POST['pages']) ? (int)$_POST['pages'] : null;
+    $dimensions = isset($_POST['dimensions']) ? sanitize($_POST['dimensions']) : null;
+    $cover_type = isset($_POST['cover_type']) ? sanitize($_POST['cover_type']) : null;
+    $ddc_code = isset($_POST['ddc_code']) ? sanitize($_POST['ddc_code']) : null;
+    $subjects = isset($_POST['subjects']) ? sanitize($_POST['subjects']) : null;
+    $publish_location = isset($_POST['publish_location']) ? sanitize($_POST['publish_location']) : null;
+
     // Handle File Uploads
     $cover_image = null;
     $file_path = null;
@@ -83,8 +94,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($id) {
         // Update
-        $query = "UPDATE books SET title=?, author=?, publisher=?, year=?, synopsis=?, category_id=?, type=?, stock=?";
-        $params = [$title, $author, $publisher, $year, $synopsis, $category_id, $type, $stock];
+        $query = "UPDATE books SET title=?, author=?, publisher=?, year=?, synopsis=?, category_id=?, type=?, stock=?, translator=?, isbn=?, language=?, pages=?, dimensions=?, cover_type=?, ddc_code=?, subjects=?, publish_location=?";
+        $params = [$title, $author, $publisher, $year, $synopsis, $category_id, $type, $stock, $translator, $isbn, $language, $pages, $dimensions, $cover_type, $ddc_code, $subjects, $publish_location];
 
         if ($cover_image) {
             $query .= ", cover_image=?";
@@ -103,8 +114,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     } else {
         // Insert
-        $query = "INSERT INTO books (title, author, publisher, year, synopsis, category_id, type, stock, cover_image, file_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $params = [$title, $author, $publisher, $year, $synopsis, $category_id, $type, $stock, $cover_image, $file_path];
+        $query = "INSERT INTO books (title, author, publisher, year, synopsis, category_id, type, stock, cover_image, file_path, translator, isbn, language, pages, dimensions, cover_type, ddc_code, subjects, publish_location) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $params = [$title, $author, $publisher, $year, $synopsis, $category_id, $type, $stock, $cover_image, $file_path, $translator, $isbn, $language, $pages, $dimensions, $cover_type, $ddc_code, $subjects, $publish_location];
         
         $stmt = $pdo->prepare($query);
         $stmt->execute($params);

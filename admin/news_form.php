@@ -19,6 +19,13 @@ if ($id) {
     $stmt->execute([$id]);
     $tags = $stmt->fetchAll(PDO::FETCH_COLUMN);
     $tags_string = implode(', ', $tags);
+
+    // Get Related Books
+    $stmt = $pdo->prepare("SELECT b.id, b.title, b.cover_image FROM books b JOIN news_book_map m ON b.id = m.book_id WHERE m.news_id = ?");
+    $stmt->execute([$id]);
+    $related_books = $stmt->fetchAll();
+} else {
+    $related_books = [];
 }
 
 // Get Categories
@@ -80,6 +87,76 @@ $categories = $pdo->query("SELECT * FROM news_categories ORDER BY name")->fetchA
                 <label class="block text-gray-700 text-sm font-bold mb-2">Tags</label>
                 <input type="text" name="tags" value="<?= htmlspecialchars($tags_string) ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Contoh: pendidikan, literasi, event">
                 <p class="text-xs text-gray-500 mt-1">Pisahkan dengan koma.</p>
+            </div>
+
+            <div x-data="{
+                query: '',
+                searchResults: [],
+                selectedBooks: <?= htmlspecialchars(json_encode($related_books)) ?>,
+                searchBooks() {
+                    if (this.query.length < 2) {
+                        this.searchResults = [];
+                        return;
+                    }
+                    fetch('api_get_books.php?q=' + this.query)
+                        .then(res => res.json())
+                        .then(data => {
+                            this.searchResults = data;
+                        });
+                },
+                addBook(book) {
+                    if (!this.selectedBooks.some(b => b.id === book.id)) {
+                        this.selectedBooks.push(book);
+                    }
+                    this.query = '';
+                    this.searchResults = [];
+                },
+                removeBook(index) {
+                    this.selectedBooks.splice(index, 1);
+                }
+            }">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Lampiran Buku</label>
+                
+                <!-- Search Input -->
+                <div class="relative mb-2">
+                    <input type="text" 
+                           x-model="query" 
+                           @input.debounce.300ms="searchBooks()" 
+                           placeholder="Cari judul buku..." 
+                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    
+                    <!-- Search Results Dropdown -->
+                    <div x-show="searchResults.length > 0" class="absolute z-10 bg-white shadow-lg rounded mt-1 w-full max-h-40 overflow-y-auto border">
+                        <template x-for="book in searchResults" :key="book.id">
+                            <div @click="addBook(book)" class="p-2 hover:bg-blue-50 cursor-pointer border-b flex items-center">
+                                <img :src="book.cover_image ? '../uploads/covers/' + book.cover_image : '../assets/no-cover.png'" class="w-8 h-10 object-cover mr-2">
+                                <div>
+                                    <div class="font-bold text-xs" x-text="book.title"></div>
+                                    <div class="text-xs text-gray-500" x-text="book.author"></div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Selected Books List -->
+                <div class="space-y-2">
+                    <template x-for="(book, index) in selectedBooks" :key="book.id">
+                        <div class="flex items-center justify-between bg-blue-50 p-2 rounded border border-blue-100">
+                            <div class="flex items-center">
+                                <input type="hidden" name="related_books[]" :value="book.id">
+                                <img :src="book.cover_image ? '../uploads/covers/' + book.cover_image : '../assets/no-cover.png'" class="w-8 h-10 object-cover mr-2">
+                                <div class="text-xs">
+                                    <div class="font-bold text-blue-900" x-text="book.title"></div>
+                                </div>
+                            </div>
+                            <button type="button" @click="removeBook(index)" class="text-red-500 hover:text-red-700">
+                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                            </button>
+                        </div>
+                    </template>
+                </div>
+                <p class="text-xs text-gray-500 mt-1">Cari dan pilih buku yang berkaitan.</p>
             </div>
 
             <div>

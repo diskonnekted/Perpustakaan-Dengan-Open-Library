@@ -64,14 +64,28 @@ class OpenLibraryConnector {
                 $coverUrl = "https://covers.openlibrary.org/b/id/" . $doc['cover_i'] . "-M.jpg";
             }
 
+            // Map Language
+            $lang = 'id'; // Default
+            if (isset($doc['language'])) {
+                if (in_array('ind', $doc['language'])) $lang = 'id';
+                elseif (in_array('eng', $doc['language'])) $lang = 'en';
+                elseif (in_array('jpn', $doc['language'])) $lang = 'jp';
+                elseif (in_array('ara', $doc['language'])) $lang = 'ar';
+            }
+
             $books[] = [
                 'title' => $doc['title'] ?? 'Unknown Title',
                 'author' => isset($doc['author_name']) ? implode(', ', array_slice($doc['author_name'], 0, 3)) : 'Unknown Author',
                 'year' => $doc['first_publish_year'] ?? '-',
                 'publisher' => isset($doc['publisher']) ? implode(', ', array_slice($doc['publisher'], 0, 1)) : '-',
+                'publish_location' => isset($doc['publish_place']) ? implode(', ', array_slice($doc['publish_place'], 0, 1)) : '',
                 'isbn' => isset($doc['isbn']) ? $doc['isbn'][0] : null,
+                'pages' => $doc['number_of_pages_median'] ?? null,
+                'language' => $lang,
+                'subjects' => isset($doc['subject']) ? implode(', ', array_slice($doc['subject'], 0, 5)) : '',
+                'ddc' => isset($doc['ddc']) ? $doc['ddc'][0] : '',
                 'cover' => $coverUrl,
-                'key' => $doc['key'] ?? null, // e.g. /works/OL123W
+                'key' => $doc['key'] ?? null,
                 'link' => 'https://openlibrary.org' . ($doc['key'] ?? '')
             ];
         }

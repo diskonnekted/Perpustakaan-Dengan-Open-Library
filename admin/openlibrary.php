@@ -70,7 +70,13 @@ if ($query) {
                             'title' => $book['title'],
                             'author' => $book['author'],
                             'publisher' => $book['publisher'],
+                            'publish_location' => $book['publish_location'],
                             'year' => $book['year'],
+                            'isbn' => $book['isbn'],
+                            'pages' => $book['pages'],
+                            'language' => $book['language'],
+                            'subjects' => $book['subjects'],
+                            'ddc_code' => $book['ddc'],
                             'cover' => $book['cover']
                         ];
                         $importUrl = "book_form.php?" . http_build_query($importParams);
