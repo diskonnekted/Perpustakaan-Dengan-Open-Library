@@ -4,6 +4,19 @@ $dbname = 'library_db';
 $username = 'root';
 $password = '';
 
+// Define Base URL dynamically
+// If running on localhost/127.0.0.1, assume /lib/ path
+// If running on live server (smartdesa.net), assume root path /
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://";
+$domain = $_SERVER['HTTP_HOST'];
+
+// Logic sederhana: jika localhost, pakai /lib/. Jika bukan (live server), pakai /.
+if ($domain === 'localhost' || $domain === '127.0.0.1') {
+    define('BASE_URL', '/lib/');
+} else {
+    define('BASE_URL', '/');
+}
+
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

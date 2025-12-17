@@ -9,7 +9,7 @@ function isLoggedIn() {
 
 function requireLogin() {
     if (!isLoggedIn()) {
-        header("Location: /lib/admin/index.php");
+        header("Location: " . BASE_URL . "admin/index.php");
         exit;
     }
 }

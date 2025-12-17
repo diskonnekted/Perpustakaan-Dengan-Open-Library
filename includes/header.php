@@ -34,14 +34,14 @@ $logo_mode = function_exists('getSetting') && isset($pdo) ? getSetting($pdo, 'lo
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-frosted_mint-100 text-gray-800 flex flex-col min-h-screen">
+<body class="bg-frosted_mint-100 text-gray-800 flex flex-col min-h-screen pb-16 md:pb-0">
     <nav class="bg-mauve-900 text-white shadow-lg">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <a href="/lib/index.php" class="text-2xl font-bold flex items-center space-x-2">
+                <a href="<?= BASE_URL ?>index.php" class="text-2xl font-bold flex items-center space-x-2">
                     <?php if ($logo_mode !== 'text_only'): ?>
                         <?php if ($site_logo): ?>
-                            <img src="/lib/uploads/logo/<?= htmlspecialchars($site_logo) ?>" class="h-10 w-auto object-contain" alt="Logo">
+                            <img src="<?= BASE_URL ?>uploads/logo/<?= htmlspecialchars($site_logo) ?>" class="h-10 w-auto object-contain" alt="Logo">
                         <?php else: ?>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-baby_pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -54,18 +54,18 @@ $logo_mode = function_exists('getSetting') && isset($pdo) ? getSetting($pdo, 'lo
                     <?php endif; ?>
                 </a>
                 <div class="hidden md:flex space-x-6 items-center">
-                    <a href="/lib/index.php" class="hover:text-lemon_chiffon-400 transition">Beranda</a>
-                    <a href="/lib/catalog.php" class="hover:text-lemon_chiffon-400 transition">Katalog Lokal</a>
-                    <a href="/lib/news.php" class="hover:text-lemon_chiffon-400 transition">Berita</a>
-                    <a href="/lib/search_global.php" class="hover:text-lemon_chiffon-400 transition">Pencarian Global</a>
-                    <a href="/lib/info.php" class="hover:text-lemon_chiffon-400 transition">Info</a>
+                    <a href="<?= BASE_URL ?>index.php" class="hover:text-lemon_chiffon-400 transition">Beranda</a>
+                    <a href="<?= BASE_URL ?>catalog.php" class="hover:text-lemon_chiffon-400 transition">Katalog Lokal</a>
+                    <a href="<?= BASE_URL ?>news.php" class="hover:text-lemon_chiffon-400 transition">Berita</a>
+                    <a href="<?= BASE_URL ?>search_global.php" class="hover:text-lemon_chiffon-400 transition">Pencarian Global</a>
+                    <a href="<?= BASE_URL ?>info.php" class="hover:text-lemon_chiffon-400 transition">Info</a>
                     
                     <?php if (isset($_SESSION['member_id'])): ?>
-                        <a href="/lib/member/index.php" class="hover:text-lemon_chiffon-400 transition font-bold">Dashboard</a>
-                        <a href="/lib/logout.php" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full transition shadow-md">Keluar</a>
+                        <a href="<?= BASE_URL ?>member/index.php" class="hover:text-lemon_chiffon-400 transition font-bold">Dashboard</a>
+                        <a href="<?= BASE_URL ?>logout.php" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full transition shadow-md">Keluar</a>
                     <?php else: ?>
-                        <a href="/lib/login.php" class="hover:text-lemon_chiffon-400 transition">Masuk</a>
-                        <a href="/lib/register.php" class="bg-baby_pink-600 hover:bg-baby_pink-700 text-white px-4 py-2 rounded-full transition shadow-md">Keanggotaan</a>
+                        <a href="<?= BASE_URL ?>login.php" class="hover:text-lemon_chiffon-400 transition">Masuk</a>
+                        <a href="<?= BASE_URL ?>register.php" class="bg-baby_pink-600 hover:bg-baby_pink-700 text-white px-4 py-2 rounded-full transition shadow-md">Keanggotaan</a>
                     <?php endif; ?>
                 </div>
                 <!-- Mobile Menu Button -->
@@ -77,18 +77,18 @@ $logo_mode = function_exists('getSetting') && isset($pdo) ? getSetting($pdo, 'lo
                     </button>
                     <div x-show="open" class="absolute top-16 right-0 bg-mauve-900 w-full shadow-lg z-50 text-white">
                         <div class="flex flex-col p-4 space-y-2">
-                            <a href="/lib/index.php" class="block hover:text-lemon_chiffon-400">Beranda</a>
-                            <a href="/lib/catalog.php" class="block hover:text-lemon_chiffon-400">Katalog Lokal</a>
-                            <a href="/lib/news.php" class="block hover:text-lemon_chiffon-400">Berita</a>
-                            <a href="/lib/search_global.php" class="block hover:text-lemon_chiffon-400">Pencarian Global</a>
-                            <a href="/lib/info.php" class="block hover:text-lemon_chiffon-400">Info</a>
+                            <a href="<?= BASE_URL ?>index.php" class="block hover:text-lemon_chiffon-400">Beranda</a>
+                            <a href="<?= BASE_URL ?>catalog.php" class="block hover:text-lemon_chiffon-400">Katalog Lokal</a>
+                            <a href="<?= BASE_URL ?>news.php" class="block hover:text-lemon_chiffon-400">Berita</a>
+                            <a href="<?= BASE_URL ?>search_global.php" class="block hover:text-lemon_chiffon-400">Pencarian Global</a>
+                            <a href="<?= BASE_URL ?>info.php" class="block hover:text-lemon_chiffon-400">Info</a>
                             
                             <?php if (isset($_SESSION['member_id'])): ?>
-                                <a href="/lib/member/index.php" class="block text-baby_pink-500 font-bold">Dashboard</a>
-                                <a href="/lib/logout.php" class="block text-red-400">Keluar</a>
+                                <a href="<?= BASE_URL ?>member/index.php" class="block text-baby_pink-500 font-bold">Dashboard</a>
+                                <a href="<?= BASE_URL ?>logout.php" class="block text-red-400">Keluar</a>
                             <?php else: ?>
-                                <a href="/lib/login.php" class="block hover:text-lemon_chiffon-400">Masuk</a>
-                                <a href="/lib/register.php" class="block text-baby_pink-500 font-bold">Keanggotaan</a>
+                                <a href="<?= BASE_URL ?>login.php" class="block hover:text-lemon_chiffon-400">Masuk</a>
+                                <a href="<?= BASE_URL ?>register.php" class="block text-baby_pink-500 font-bold">Keanggotaan</a>
                             <?php endif; ?>
                         </div>
                     </div>

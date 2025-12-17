@@ -32,7 +32,7 @@ $app_name = $stmt->fetchColumn() ?: 'Perpustakaan Digital';
 </head>
 <body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen p-4">
 
-    <div id="card" class="bg-white rounded-xl shadow-2xl overflow-hidden w-[600px] h-[350px] relative flex border-2 border-mauve-900" style="background-image: url('/lib/uploads/background.jpg'); background-size: cover; background-position: center;">
+    <div id="card" class="bg-white rounded-xl shadow-2xl overflow-hidden w-[600px] h-[350px] relative flex border-2 border-mauve-900" style="background-image: url('<?= BASE_URL ?>uploads/background.jpg'); background-size: cover; background-position: center;">
         <!-- Left Side: Design & Info -->
         <div class="w-2/3 p-8 relative z-10">
             <div class="absolute inset-0 bg-gradient-to-br from-mauve-100 to-white opacity-50 z-[-1]"></div>
