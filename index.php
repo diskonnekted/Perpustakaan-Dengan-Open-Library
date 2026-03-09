@@ -12,13 +12,9 @@ $stmt = $pdo->query("SELECT * FROM categories ORDER BY name LIMIT 8");
 $featuredCategories = $stmt->fetchAll();
 
 // Ambil Pengaturan
-$hero_title = $pdo->query("SELECT value FROM settings WHERE key_name = 'hero_title'")->fetchColumn();
-$hero_subtitle = $pdo->query("SELECT value FROM settings WHERE key_name = 'hero_subtitle'")->fetchColumn();
-$hero_image = $pdo->query("SELECT value FROM settings WHERE key_name = 'hero_image'")->fetchColumn();
-
-// Fallback jika kosong
-$hero_title = $hero_title ?: "Jelajahi Dunia Ilmu Pengetahuan";
-$hero_subtitle = $hero_subtitle ?: "Koleksi buku fisik dan digital lengkap untuk kebutuhan belajar Anda.";
+$hero_title = function_exists('getSetting') ? getSetting($pdo, 'hero_title', "Jelajahi Dunia Ilmu Pengetahuan") : "Jelajahi Dunia Ilmu Pengetahuan";
+$hero_subtitle = function_exists('getSetting') ? getSetting($pdo, 'hero_subtitle', "Koleksi buku fisik dan digital lengkap untuk kebutuhan belajar Anda.") : "Koleksi buku fisik dan digital lengkap untuk kebutuhan belajar Anda.";
+$hero_image = function_exists('getSetting') ? getSetting($pdo, 'hero_image', '') : '';
 ?>
 
 <!-- Hero Section Modern -->
@@ -36,7 +32,7 @@ $hero_subtitle = $hero_subtitle ?: "Koleksi buku fisik dan digital lengkap untuk
     <!-- Content -->
     <div class="relative z-10 container mx-auto px-4 py-32 md:py-48 flex flex-col items-center text-center">
         <span class="inline-block py-1 px-3 rounded-full bg-lemon_chiffon-400 text-mauve-900 text-sm font-bold mb-6 animate-fade-in-up">
-            Selamat Datang di Perpustakaan Digital
+            Selamat Datang di <?= isset($site_name) ? htmlspecialchars($site_name) : 'Perpustakaan Digital' ?>
         </span>
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-mauve-900 mb-6 leading-tight max-w-4xl tracking-tight">
             <?= htmlspecialchars($hero_title) ?>

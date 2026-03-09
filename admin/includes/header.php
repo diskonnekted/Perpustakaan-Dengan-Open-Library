@@ -6,6 +6,7 @@ require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../includes/functions.php';
 requireLogin();
 
+$site_name_admin = function_exists('getSetting') ? getSetting($pdo, 'library_name', 'Perpustakaan') : 'Perpustakaan';
 $currentPage = basename($_SERVER['PHP_SELF']);
 ?>
 <!DOCTYPE html>
@@ -13,7 +14,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Perpustakaan</title>
+    <title>Admin Dashboard - <?= htmlspecialchars($site_name_admin) ?></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>

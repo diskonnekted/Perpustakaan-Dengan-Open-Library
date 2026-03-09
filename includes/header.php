@@ -11,18 +11,18 @@ $logo_mode = function_exists('getSetting') && isset($pdo) ? getSetting($pdo, 'lo
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perpustakaan Digital</title>
+    <title><?= htmlspecialchars($site_name) ?></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        baby_pink: { DEFAULT: '#ff99c8', 100: '#ffebf4', 200: '#ffd6e9', 300: '#ffc2de', 400: '#ffadd3', 500: '#ff99c8', 600: '#ff479d', 700: '#f50072', 800: '#a3004c', 900: '#520026' },
-                        lemon_chiffon: { DEFAULT: '#fcf6bd', 100: '#fefdf1', 200: '#fefbe4', 300: '#fdf9d6', 400: '#fcf7c8', 500: '#fcf6bd', 600: '#f8e967', 700: '#f4dd13', 800: '#a89808', 900: '#544c04' },
-                        frosted_mint: { DEFAULT: '#d0f4de', 100: '#f6fdf9', 200: '#edfbf2', 300: '#e4f9ec', 400: '#dbf6e5', 500: '#d0f4de', 600: '#88e3ab', 700: '#3ed277', 800: '#22934e', 900: '#114a27' },
-                        icy_blue: { DEFAULT: '#a9def9', 100: '#eef8fe', 200: '#ddf2fd', 300: '#ccebfb', 400: '#bae5fa', 500: '#a9def9', 600: '#5bc1f4', 700: '#10a2eb', 800: '#0b6c9c', 900: '#05364e' },
-                        mauve: { DEFAULT: '#e4c1f9', 100: '#faf3fe', 200: '#f5e7fd', 300: '#efdbfb', 400: '#eacffa', 500: '#e4c1f9', 600: '#c272f1', 700: '#a021e9', 800: '#6c10a2', 900: '#360851' }
+                        baby_pink: { DEFAULT: '#fb8500', 100: '#FFF3E0', 200: '#FFE0B2', 300: '#FFCC80', 400: '#FFB74D', 500: '#FB8500', 600: '#E27600', 700: '#C76600', 800: '#A95600', 900: '#6B3800' },
+                        lemon_chiffon: { DEFAULT: '#ffb703', 100: '#FFF7E0', 200: '#FFE8A3', 300: '#FFD66B', 400: '#FFC53A', 500: '#FFB703', 600: '#E6A402', 700: '#CC9302', 800: '#A67702', 900: '#5E4501' },
+                        frosted_mint: { DEFAULT: '#219ebc', 100: '#E6F5FA', 200: '#CDECF6', 300: '#A3DBED', 400: '#6EC3E0', 500: '#219EBC', 600: '#1C8AA4', 700: '#176F86', 800: '#12586A', 900: '#0B3642' },
+                        icy_blue: { DEFAULT: '#8ecae6', 100: '#EFF7FC', 200: '#D9EEF9', 300: '#BFE3F5', 400: '#A5D7EF', 500: '#8ECAE6', 600: '#6FB7DA', 700: '#559FC6', 800: '#3D84AC', 900: '#245570' },
+                        mauve: { DEFAULT: '#023047', 100: '#E6EEF2', 200: '#CCDDE5', 300: '#9EBECE', 400: '#6E96AB', 500: '#023047', 600: '#02283A', 700: '#011F2D', 800: '#011723', 900: '#000E16' }
                     }
                 }
             }

@@ -1,8 +1,8 @@
     </main>
     <?php
     $footer_name = isset($site_name) ? $site_name : (function_exists('getSetting') && isset($pdo) ? getSetting($pdo, 'library_name', 'Perpustakaan Hybrid') : 'Perpustakaan Hybrid');
-    $footer_addr = function_exists('getSetting') && isset($pdo) ? getSetting($pdo, 'library_address', 'Jl. Pendidikan No. 123, Jakarta') : 'Jl. Pendidikan No. 123, Jakarta';
-    $footer_email = function_exists('getSetting') && isset($pdo) ? getSetting($pdo, 'library_email', 'info@perpustakaan.id') : 'info@perpustakaan.id';
+    $footer_addr = function_exists('getSetting') && isset($pdo) ? getSetting($pdo, 'library_address', 'Kalurahan Pondokrejo, Sleman, Daerah Istimewa Yogyakarta') : 'Kalurahan Pondokrejo, Sleman, Daerah Istimewa Yogyakarta';
+    $footer_email = function_exists('getSetting') && isset($pdo) ? getSetting($pdo, 'library_email', '') : '';
     ?>
     <footer class="bg-mauve-900 text-white py-8">
         <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8">

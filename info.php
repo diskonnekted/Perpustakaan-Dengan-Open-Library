@@ -3,17 +3,10 @@ require_once 'config/database.php';
 require_once 'includes/functions.php';
 require_once 'includes/header.php';
 
-// Helper to get setting value
-function getLibraryInfo($pdo, $key) {
-    $stmt = $pdo->prepare("SELECT value FROM settings WHERE key_name = ?");
-    $stmt->execute([$key]);
-    return $stmt->fetchColumn();
-}
-
 $info = [];
 $keys = ['library_name', 'library_description', 'library_address', 'library_phone', 'library_email', 'library_permit', 'library_head'];
 foreach ($keys as $key) {
-    $info[$key] = getLibraryInfo($pdo, $key);
+    $info[$key] = function_exists('getSetting') ? getSetting($pdo, $key) : '';
 }
 ?>
 
