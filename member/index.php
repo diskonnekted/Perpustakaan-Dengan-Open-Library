@@ -78,12 +78,12 @@ require_once '../includes/header.php';
         <div class="lg:col-span-2 space-y-8">
             <!-- Active Loans -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
-                <div class="bg-blue-50 px-6 py-4 border-b border-blue-100 flex justify-between items-center">
+                <div class="bg-icy_blue-100 px-6 py-4 border-b border-icy_blue-200 flex justify-between items-center">
                     <h2 class="text-xl font-bold text-gray-800 flex items-center">
-                        <svg class="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <svg class="w-6 h-6 mr-2 text-frosted_mint-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                         Sedang Dipinjam
                     </h2>
-                    <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full"><?= count($active_loans) ?> Buku</span>
+                    <span class="bg-icy_blue-200 text-mauve-900 text-xs font-bold px-3 py-1 rounded-full"><?= count($active_loans) ?> Buku</span>
                 </div>
                 
                 <?php if (count($active_loans) > 0): ?>
@@ -139,7 +139,7 @@ require_once '../includes/header.php';
                     <div class="p-8 text-center text-gray-500">
                         <svg class="w-16 h-16 mx-auto text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                         <p class="mb-4">Tidak ada buku yang sedang dipinjam.</p>
-                        <a href="../catalog.php" class="text-blue-600 hover:text-blue-800 font-semibold">Mulai meminjam buku &rarr;</a>
+                        <a href="../catalog.php" class="text-frosted_mint-700 hover:text-frosted_mint-800 font-semibold">Mulai meminjam buku &rarr;</a>
                     </div>
                 <?php endif; ?>
             </div>

@@ -51,21 +51,21 @@ require_once 'includes/header.php';
                 <form action="" method="POST" class="space-y-6">
                     <div>
                         <label class="block text-gray-700 font-bold mb-2">Email</label>
-                        <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition">
+                        <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 focus:border-frosted_mint-600 focus:ring-2 focus:ring-icy_blue-200 transition">
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-bold mb-2">Password</label>
-                        <input type="password" name="password" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition">
+                        <input type="password" name="password" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-300 focus:border-frosted_mint-600 focus:ring-2 focus:ring-icy_blue-200 transition">
                     </div>
 
                     <div class="flex items-center justify-between">
                         <div class="text-sm">
-                            <a href="register.php" class="font-medium text-blue-600 hover:text-blue-500">Belum punya akun? Daftar</a>
+                            <a href="register.php" class="font-medium text-frosted_mint-700 hover:text-frosted_mint-600">Belum punya akun? Daftar</a>
                         </div>
                     </div>
 
-                    <button type="submit" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 rounded-lg shadow-lg transition transform hover:scale-[1.02]">
+                    <button type="submit" class="w-full bg-baby_pink-600 hover:bg-baby_pink-700 text-white font-bold py-3 rounded-lg shadow-lg transition transform hover:scale-[1.02]">
                         Masuk
                     </button>
                 </form>

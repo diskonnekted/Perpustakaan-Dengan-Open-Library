@@ -120,7 +120,7 @@ $lib_head = getSetting($pdo, 'library_head');
                     <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white text-xs p-1 w-full">Gambar Saat Ini</div>
                 </div>
             <?php endif; ?>
-            <input type="file" name="hero_image" accept="image/*" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+            <input type="file" name="hero_image" accept="image/*" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-icy_blue-100 file:text-mauve-900 hover:file:bg-icy_blue-200">
             <p class="text-xs text-gray-500 mt-1">Format: JPG, PNG, WEBP. Disarankan ukuran 1920x600px.</p>
         </div>
 
@@ -135,7 +135,7 @@ $lib_head = getSetting($pdo, 'library_head');
                         <div class="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white text-xs p-1 w-full text-center">Logo Saat Ini</div>
                     </div>
                 <?php endif; ?>
-                <input type="file" name="library_logo" accept="image/png,image/jpeg,image/webp" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                <input type="file" name="library_logo" accept="image/png,image/jpeg,image/webp" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-icy_blue-100 file:text-mauve-900 hover:file:bg-icy_blue-200">
             </div>
 
             <div class="mb-4">
@@ -193,7 +193,7 @@ $lib_head = getSetting($pdo, 'library_head');
         </div>
 
         <div class="flex items-center justify-end">
-            <button type="submit" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-6 rounded transition">
+            <button type="submit" class="bg-baby_pink-600 hover:bg-baby_pink-700 text-white font-bold py-2 px-6 rounded transition">
                 Simpan Perubahan
             </button>
         </div>

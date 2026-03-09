@@ -45,7 +45,7 @@ if (isset($_SESSION['member_id'])) {
 }
 
 if (!$book) {
-    echo "<div class='container mx-auto px-4 py-12 text-center'><h2 class='text-2xl font-bold'>Buku tidak ditemukan</h2><a href='catalog.php' class='text-brick_red mt-4 inline-block'>Kembali ke Katalog</a></div>";
+    echo "<div class='container mx-auto px-4 py-12 text-center'><h2 class='text-2xl font-bold'>Buku tidak ditemukan</h2><a href='catalog.php' class='text-baby_pink-700 mt-4 inline-block'>Kembali ke Katalog</a></div>";
     require_once 'includes/footer.php';
     exit;
 }
@@ -53,7 +53,7 @@ if (!$book) {
 
 <div class="container mx-auto px-4 py-8">
     <div class="mb-6">
-        <a href="catalog.php" class="text-gray-500 hover:text-blue-900 flex items-center">
+        <a href="catalog.php" class="text-gray-500 hover:text-mauve-900 flex items-center">
             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
             Kembali ke Katalog
         </a>
@@ -84,7 +84,7 @@ if (!$book) {
             <!-- Details -->
             <div class="md:w-2/3 p-8">
                 <div class="flex items-center space-x-2 mb-2">
-                    <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full uppercase"><?= $book['category_name'] ? htmlspecialchars($book['category_name']) : 'Umum' ?></span>
+                    <span class="px-3 py-1 bg-icy_blue-100 text-mauve-900 text-xs font-bold rounded-full uppercase"><?= $book['category_name'] ? htmlspecialchars($book['category_name']) : 'Umum' ?></span>
                     <?php if ($book['type'] == 'digital'): ?>
                         <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-full uppercase flex items-center">
                             <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
@@ -204,8 +204,8 @@ if (!$book) {
                 <?php if ($book['type'] == 'physical'): ?>
                     <div class="mt-6 border-t border-gray-100 pt-6">
                         <?php if (!isset($_SESSION['member_id'])): ?>
-                            <div class="bg-blue-50 text-blue-800 p-4 rounded-lg text-center">
-                                <p>Silakan <a href="login.php" class="font-bold underline hover:text-blue-900">Login</a> untuk meminjam buku ini.</p>
+                            <div class="bg-icy_blue-100 text-mauve-900 p-4 rounded-lg text-center">
+                                <p>Silakan <a href="login.php" class="font-bold underline hover:text-frosted_mint-800">Login</a> untuk meminjam buku ini.</p>
                             </div>
                         <?php elseif ($loan_status == 'borrowed'): ?>
                             <div class="bg-green-100 text-green-800 p-4 rounded-lg flex items-center shadow-sm">

@@ -19,9 +19,9 @@ $recentBooks = $stmt->fetchAll();
 
 <!-- Stats Cards -->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-    <div class="bg-white rounded-lg shadow p-6 border-l-4 border-blue-500">
+    <div class="bg-white rounded-lg shadow p-6 border-l-4 border-frosted_mint-600">
         <div class="flex items-center">
-            <div class="p-3 rounded-full bg-blue-100 text-blue-500 mr-4">
+            <div class="p-3 rounded-full bg-icy_blue-100 text-frosted_mint-700 mr-4">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
             </div>
             <div>
@@ -69,7 +69,7 @@ $recentBooks = $stmt->fetchAll();
 <div class="bg-white rounded-lg shadow overflow-hidden">
     <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
         <h3 class="font-bold text-gray-800">Buku Baru Ditambahkan</h3>
-        <a href="books.php" class="text-blue-600 text-sm hover:underline">Lihat Semua</a>
+        <a href="books.php" class="text-frosted_mint-700 text-sm hover:underline">Lihat Semua</a>
     </div>
     <div class="overflow-x-auto">
         <table class="w-full text-left border-collapse">
@@ -95,7 +95,7 @@ $recentBooks = $stmt->fetchAll();
                         <?php if ($book['type'] == 'digital'): ?>
                             <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Digital</span>
                         <?php else: ?>
-                            <span class="bg-blue-200 text-blue-600 py-1 px-3 rounded-full text-xs">Fisik</span>
+                            <span class="bg-icy_blue-200 text-mauve-900 py-1 px-3 rounded-full text-xs">Fisik</span>
                         <?php endif; ?>
                     </td>
                     <td class="py-3 px-6 text-center">

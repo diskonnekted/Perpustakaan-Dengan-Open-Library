@@ -78,7 +78,7 @@ $categories = $pdo->query("SELECT * FROM news_categories ORDER BY name")->fetchA
                 </div>
                 
                 <div class="flex items-center justify-between">
-                    <button type="submit" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+                    <button type="submit" class="bg-baby_pink-600 hover:bg-baby_pink-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
                         <?= $editCategory ? 'Update' : 'Simpan' ?>
                     </button>
                 </div>

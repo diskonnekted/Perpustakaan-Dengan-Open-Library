@@ -12,6 +12,7 @@ $logo_mode = function_exists('getSetting') && isset($pdo) ? getSetting($pdo, 'lo
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($site_name) ?></title>
+    <link rel="icon" type="image/png" href="<?= BASE_URL ?>uploads/logo/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {

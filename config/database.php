@@ -177,8 +177,15 @@ function ensureSchema(PDO $pdo): void {
     }
 
     $stmt = $pdo->query("SELECT COUNT(*) FROM categories");
-    if ((int)$stmt->fetchColumn() === 0) {
-        $pdo->exec("INSERT INTO categories (name) VALUES ('Fiksi'), ('Sains'), ('Sejarah'), ('Teknologi'), ('Biografi')");
+    $stmt->fetchColumn();
+    $defaultCategories = ['Fiksi', 'Sains', 'Sejarah', 'Teknologi', 'Biografi', 'Pendidikan', 'Kesehatan', 'Anak'];
+    $checkCategory = $pdo->prepare("SELECT COUNT(*) FROM categories WHERE name = ?");
+    $insertCategory = $pdo->prepare("INSERT INTO categories (name) VALUES (?)");
+    foreach ($defaultCategories as $name) {
+        $checkCategory->execute([$name]);
+        if ((int)$checkCategory->fetchColumn() === 0) {
+            $insertCategory->execute([$name]);
+        }
     }
 
     $stmt = $pdo->query("SELECT COUNT(*) FROM news_categories");

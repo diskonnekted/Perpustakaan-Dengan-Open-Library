@@ -32,7 +32,7 @@ $books = $stmt->fetchAll();
 
 <div class="flex justify-between items-center mb-6">
     <h1 class="text-3xl font-bold text-gray-800">Kelola Buku</h1>
-    <a href="book_form.php" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded flex items-center">
+    <a href="book_form.php" class="bg-baby_pink-600 hover:bg-baby_pink-700 text-white font-bold py-2 px-4 rounded flex items-center">
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
         Tambah Buku
     </a>
@@ -41,7 +41,7 @@ $books = $stmt->fetchAll();
 <div class="bg-white rounded-lg shadow overflow-hidden">
     <div class="p-4 border-b border-gray-200">
         <form action="" method="GET" class="flex">
-            <input type="text" name="q" value="<?= htmlspecialchars($search) ?>" placeholder="Cari judul atau penulis..." class="flex-grow border rounded-l px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input type="text" name="q" value="<?= htmlspecialchars($search) ?>" placeholder="Cari judul atau penulis..." class="flex-grow border rounded-l px-4 py-2 focus:outline-none focus:ring-2 focus:ring-icy_blue-200 focus:border-frosted_mint-600">
             <button type="submit" class="bg-gray-100 border border-l-0 rounded-r px-4 hover:bg-gray-200">Cari</button>
         </form>
     </div>
@@ -82,7 +82,7 @@ $books = $stmt->fetchAll();
                             <?php if ($book['type'] == 'digital'): ?>
                                 <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Digital</span>
                             <?php else: ?>
-                                <span class="bg-blue-200 text-blue-600 py-1 px-3 rounded-full text-xs">Fisik</span>
+                                <span class="bg-icy_blue-200 text-mauve-900 py-1 px-3 rounded-full text-xs">Fisik</span>
                             <?php endif; ?>
                         </td>
                         <td class="py-3 px-6 text-center">
@@ -118,7 +118,7 @@ $books = $stmt->fetchAll();
     <div class="p-4 border-t border-gray-200 flex justify-center">
         <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
             <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-                <a href="?page=<?= $i ?>&q=<?= htmlspecialchars($search) ?>" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 <?= $page == $i ? 'bg-blue-50 text-blue-600' : '' ?>">
+                <a href="?page=<?= $i ?>&q=<?= htmlspecialchars($search) ?>" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 <?= $page == $i ? 'bg-icy_blue-100 text-mauve-900' : '' ?>">
                     <?= $i ?>
                 </a>
             <?php endfor; ?>

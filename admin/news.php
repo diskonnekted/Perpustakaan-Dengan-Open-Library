@@ -31,7 +31,7 @@ $news_list = $stmt->fetchAll();
 
 <div class="flex justify-between items-center mb-6">
     <h1 class="text-3xl font-bold text-gray-800">Kelola Berita</h1>
-    <a href="news_form.php" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded flex items-center">
+    <a href="news_form.php" class="bg-baby_pink-600 hover:bg-baby_pink-700 text-white font-bold py-2 px-4 rounded flex items-center">
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
         Tambah Berita
     </a>
@@ -40,7 +40,7 @@ $news_list = $stmt->fetchAll();
 <div class="bg-white rounded-lg shadow overflow-hidden">
     <div class="p-4 border-b border-gray-200">
         <form action="" method="GET" class="flex">
-            <input type="text" name="q" value="<?= htmlspecialchars($search) ?>" placeholder="Cari judul berita..." class="flex-grow border rounded-l px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input type="text" name="q" value="<?= htmlspecialchars($search) ?>" placeholder="Cari judul berita..." class="flex-grow border rounded-l px-4 py-2 focus:outline-none focus:ring-2 focus:ring-icy_blue-200 focus:border-frosted_mint-600">
             <button type="submit" class="bg-gray-100 border border-l-0 rounded-r px-4 hover:bg-gray-200">Cari</button>
         </form>
     </div>

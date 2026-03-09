@@ -83,6 +83,9 @@ $hero_image = function_exists('getSetting') ? getSetting($pdo, 'hero_image', '')
                 'Sejarah' => '<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>',
                 'Teknologi' => '<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>',
                 'Biografi' => '<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>',
+                'Pendidikan' => '<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9v6a9 9 0 0018 0V9"></path></svg>',
+                'Kesehatan' => '<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.5 12.75l6 6 9-13.5"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21c-4.5 0-8-3.5-8-8V7.5A1.5 1.5 0 015.5 6h13A1.5 1.5 0 0120 7.5V13c0 4.5-3.5 8-8 8z"></path></svg>',
+                'Anak' => '<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7a3 3 0 116 0 3 3 0 01-6 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 20a8 8 0 0116 0"></path></svg>',
                 'Bisnis' => '<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>',
                 'Seni' => '<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>',
                 'Agama' => '<svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>',
@@ -90,7 +93,7 @@ $hero_image = function_exists('getSetting') ? getSetting($pdo, 'hero_image', '')
             ];
             
             $colors = [
-                'bg-blue-100 text-blue-600',
+                'bg-icy_blue-100 text-frosted_mint-700',
                 'bg-green-100 text-green-600',
                 'bg-purple-100 text-purple-600',
                 'bg-orange-100 text-orange-600',
@@ -108,15 +111,15 @@ $hero_image = function_exists('getSetting') ? getSetting($pdo, 'hero_image', '')
                 $i++;
             ?>
             <a href="catalog.php?category_id=<?= $cat['id'] ?>" class="group block h-full">
-                <div class="bg-white rounded-2xl p-6 transition duration-300 shadow-sm hover:shadow-xl border border-gray-100 hover:border-blue-200 group-hover:-translate-y-2 flex flex-col items-center justify-center text-center h-full relative overflow-hidden">
+                <div class="bg-white rounded-2xl p-6 transition duration-300 shadow-sm hover:shadow-xl border border-gray-100 hover:border-icy_blue-200 group-hover:-translate-y-2 flex flex-col items-center justify-center text-center h-full relative overflow-hidden">
                     <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-gray-50 rounded-full opacity-50 group-hover:scale-150 transition duration-500"></div>
                     
                     <div class="w-20 h-20 rounded-2xl <?= $colorClass ?> flex items-center justify-center mb-5 group-hover:scale-110 transition duration-300 shadow-inner">
                         <?= $icon ?>
                     </div>
                     
-                    <h3 class="font-bold text-gray-800 text-xl group-hover:text-blue-600 transition"><?= htmlspecialchars($cat['name']) ?></h3>
-                    <p class="text-sm text-gray-400 mt-2 group-hover:text-blue-500 transition flex items-center">
+                    <h3 class="font-bold text-gray-800 text-xl group-hover:text-frosted_mint-700 transition"><?= htmlspecialchars($cat['name']) ?></h3>
+                    <p class="text-sm text-gray-400 mt-2 group-hover:text-frosted_mint-600 transition flex items-center">
                         Jelajahi 
                         <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                     </p>

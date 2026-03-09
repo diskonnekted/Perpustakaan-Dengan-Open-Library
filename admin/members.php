@@ -61,7 +61,7 @@ if (count($members) > 0) {
 
 <div class="flex justify-between items-center mb-6">
     <h1 class="text-3xl font-bold text-gray-800">Kelola Anggota</h1>
-    <a href="member_form.php" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded flex items-center">
+    <a href="member_form.php" class="bg-baby_pink-600 hover:bg-baby_pink-700 text-white font-bold py-2 px-4 rounded flex items-center">
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
         Tambah Anggota
     </a>
@@ -70,7 +70,7 @@ if (count($members) > 0) {
 <div class="bg-white rounded-lg shadow overflow-hidden">
     <div class="p-4 border-b border-gray-200">
         <form action="" method="GET" class="flex">
-            <input type="text" name="q" value="<?= htmlspecialchars($search) ?>" placeholder="Cari nama, kode, atau email..." class="flex-grow border rounded-l px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input type="text" name="q" value="<?= htmlspecialchars($search) ?>" placeholder="Cari nama, kode, atau email..." class="flex-grow border rounded-l px-4 py-2 focus:outline-none focus:ring-2 focus:ring-icy_blue-200 focus:border-frosted_mint-600">
             <button type="submit" class="bg-gray-100 border border-l-0 rounded-r px-4 hover:bg-gray-200">Cari</button>
         </form>
     </div>
@@ -130,7 +130,7 @@ if (count($members) > 0) {
                         <td class="py-3 px-6 text-center align-top" x-data="{ showHistory: false }">
                             <?php $history = $history_loans[$member['id']] ?? []; ?>
                             <?php if (count($history) > 0): ?>
-                                <button @click="showHistory = true" class="bg-blue-100 text-blue-600 hover:bg-blue-200 py-1 px-3 rounded-full text-xs font-bold transition">
+                                <button @click="showHistory = true" class="bg-icy_blue-100 text-mauve-900 hover:bg-icy_blue-200 py-1 px-3 rounded-full text-xs font-bold transition">
                                     Lihat (<?= count($history) ?>)
                                 </button>
                                 
@@ -188,7 +188,7 @@ if (count($members) > 0) {
                                 <a href="member_form.php?id=<?= $member['id'] ?>" class="text-purple-600 hover:text-purple-800" title="Edit">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
                                 </a>
-                                <a href="member_card.php?id=<?= $member['id'] ?>" class="text-blue-600 hover:text-blue-800" title="Kartu Anggota" target="_blank">
+                                <a href="member_card.php?id=<?= $member['id'] ?>" class="text-frosted_mint-700 hover:text-frosted_mint-800" title="Kartu Anggota" target="_blank">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
                                 </a>
                                 <a href="member_action.php?delete=<?= $member['id'] ?>" onclick="return confirm('Yakin ingin menghapus anggota ini?')" class="text-red-600 hover:text-red-800" title="Hapus">
@@ -212,7 +212,7 @@ if (count($members) > 0) {
     <div class="p-4 border-t border-gray-200 flex justify-center">
         <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
             <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-                <a href="?page=<?= $i ?>&q=<?= htmlspecialchars($search) ?>" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 <?= $page == $i ? 'bg-blue-50 text-blue-600' : '' ?>">
+                <a href="?page=<?= $i ?>&q=<?= htmlspecialchars($search) ?>" class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 <?= $page == $i ? 'bg-icy_blue-100 text-mauve-900' : '' ?>">
                     <?= $i ?>
                 </a>
             <?php endfor; ?>

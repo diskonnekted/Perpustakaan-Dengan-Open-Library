@@ -90,7 +90,7 @@ $app_name = $stmt->fetchColumn() ?: 'Perpustakaan Digital';
     </div>
 
     <div class="mt-8 space-x-4 no-print">
-        <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded shadow transition">
+        <button onclick="window.print()" class="bg-baby_pink-600 hover:bg-baby_pink-700 text-white font-bold py-2 px-6 rounded shadow transition">
             Cetak Kartu
         </button>
         <button onclick="window.close()" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded shadow transition">

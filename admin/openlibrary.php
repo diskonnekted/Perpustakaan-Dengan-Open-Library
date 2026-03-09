@@ -22,7 +22,7 @@ if ($query) {
 <div class="bg-white rounded-lg shadow p-6 mb-8">
     <form action="" method="GET" class="flex flex-col md:flex-row gap-4">
         <div class="w-full md:w-1/4">
-            <select name="type" class="w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 p-3 bg-gray-50">
+            <select name="type" class="w-full border-gray-300 rounded-lg focus:ring-icy_blue-200 focus:border-frosted_mint-600 p-3 bg-gray-50">
                 <option value="q" <?= $type == 'q' ? 'selected' : '' ?>>Semua</option>
                 <option value="title" <?= $type == 'title' ? 'selected' : '' ?>>Judul</option>
                 <option value="author" <?= $type == 'author' ? 'selected' : '' ?>>Penulis</option>
@@ -30,8 +30,8 @@ if ($query) {
             </select>
         </div>
         <div class="w-full md:w-3/4 flex gap-2">
-            <input type="text" name="q" value="<?= htmlspecialchars($query) ?>" placeholder="Masukkan kata kunci..." class="w-full border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 p-3" required>
-            <button type="submit" class="bg-blue-600 text-white font-bold px-8 py-3 rounded-lg hover:bg-blue-700 transition flex items-center">
+            <input type="text" name="q" value="<?= htmlspecialchars($query) ?>" placeholder="Masukkan kata kunci..." class="w-full border-gray-300 rounded-lg focus:ring-icy_blue-200 focus:border-frosted_mint-600 p-3" required>
+            <button type="submit" class="bg-baby_pink-600 text-white font-bold px-8 py-3 rounded-lg hover:bg-baby_pink-700 transition flex items-center">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 Cari
             </button>
@@ -43,7 +43,7 @@ if ($query) {
     <?php if (count($results) > 0): ?>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <?php foreach ($results as $book): ?>
-            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col h-full border hover:border-blue-300 transition">
+            <div class="bg-white rounded-lg shadow overflow-hidden flex flex-col h-full border hover:border-icy_blue-300 transition">
                 <div class="h-48 bg-gray-100 flex items-center justify-center overflow-hidden relative">
                     <?php if ($book['cover']): ?>
                         <img src="<?= htmlspecialchars($book['cover']) ?>" class="h-full object-contain">

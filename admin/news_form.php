@@ -34,7 +34,7 @@ $categories = $pdo->query("SELECT * FROM news_categories ORDER BY name")->fetchA
 
 <div class="mb-6">
     <div class="flex items-center text-sm text-gray-500 mb-2">
-        <a href="news.php" class="hover:text-blue-900">Berita</a>
+        <a href="news.php" class="hover:text-mauve-900">Berita</a>
         <svg class="h-4 w-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
         <span><?= $news ? 'Edit Berita' : 'Tambah Berita' ?></span>
     </div>
@@ -128,7 +128,7 @@ $categories = $pdo->query("SELECT * FROM news_categories ORDER BY name")->fetchA
                     <!-- Search Results Dropdown -->
                     <div x-show="searchResults.length > 0" class="absolute z-10 bg-white shadow-lg rounded mt-1 w-full max-h-40 overflow-y-auto border">
                         <template x-for="book in searchResults" :key="book.id">
-                            <div @click="addBook(book)" class="p-2 hover:bg-blue-50 cursor-pointer border-b flex items-center">
+                            <div @click="addBook(book)" class="p-2 hover:bg-icy_blue-100 cursor-pointer border-b flex items-center">
                                 <img :src="book.cover_image ? '../uploads/covers/' + book.cover_image : '../assets/no-cover.png'" class="w-8 h-10 object-cover mr-2">
                                 <div>
                                     <div class="font-bold text-xs" x-text="book.title"></div>
@@ -142,12 +142,12 @@ $categories = $pdo->query("SELECT * FROM news_categories ORDER BY name")->fetchA
                 <!-- Selected Books List -->
                 <div class="space-y-2">
                     <template x-for="(book, index) in selectedBooks" :key="book.id">
-                        <div class="flex items-center justify-between bg-blue-50 p-2 rounded border border-blue-100">
+                        <div class="flex items-center justify-between bg-icy_blue-100 p-2 rounded border border-icy_blue-200">
                             <div class="flex items-center">
                                 <input type="hidden" name="related_books[]" :value="book.id">
                                 <img :src="book.cover_image ? '../uploads/covers/' + book.cover_image : '../assets/no-cover.png'" class="w-8 h-10 object-cover mr-2">
                                 <div class="text-xs">
-                                    <div class="font-bold text-blue-900" x-text="book.title"></div>
+                                    <div class="font-bold text-mauve-900" x-text="book.title"></div>
                                 </div>
                             </div>
                             <button type="button" @click="removeBook(index)" class="text-red-500 hover:text-red-700">
@@ -166,7 +166,7 @@ $categories = $pdo->query("SELECT * FROM news_categories ORDER BY name")->fetchA
                         <img src="../uploads/news/<?= htmlspecialchars($news['image']) ?>" class="w-full h-auto rounded shadow">
                     </div>
                 <?php endif; ?>
-                <input type="file" name="image" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                <input type="file" name="image" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-icy_blue-100 file:text-mauve-900 hover:file:bg-icy_blue-200">
                 <p class="text-xs text-gray-500 mt-1">Format: JPG, PNG. Max 2MB.</p>
             </div>
         </div>
@@ -174,7 +174,7 @@ $categories = $pdo->query("SELECT * FROM news_categories ORDER BY name")->fetchA
 
     <div class="px-6 py-4 bg-gray-50 border-t border-gray-200 flex justify-end">
         <a href="news.php" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded mr-2">Batal</a>
-        <button type="submit" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">
+        <button type="submit" class="bg-baby_pink-600 hover:bg-baby_pink-700 text-white font-bold py-2 px-4 rounded">
             <?= $news ? 'Simpan Perubahan' : 'Terbitkan Berita' ?>
         </button>
     </div>

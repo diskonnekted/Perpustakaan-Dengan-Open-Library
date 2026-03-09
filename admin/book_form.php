@@ -28,7 +28,7 @@ $categories = $pdo->query("SELECT * FROM categories ORDER BY name")->fetchAll();
 
 <div class="mb-6">
     <div class="flex items-center text-sm text-gray-500 mb-2">
-        <a href="books.php" class="hover:text-blue-600">Buku</a>
+        <a href="books.php" class="hover:text-frosted_mint-700">Buku</a>
         <svg class="h-4 w-4 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
         <span><?= $book ? 'Edit Buku' : 'Tambah Buku' ?></span>
     </div>
@@ -143,7 +143,7 @@ $categories = $pdo->query("SELECT * FROM categories ORDER BY name")->fetchAll();
                             <p class="text-xs text-green-600 mt-1 font-semibold">Cover dari OpenLibrary akan disimpan otomatis</p>
                         </div>
                     <?php endif; ?>
-                    <input type="file" name="cover_image" accept="image/*" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                    <input type="file" name="cover_image" accept="image/*" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-icy_blue-100 file:text-mauve-900 hover:file:bg-icy_blue-200">
                 </div>
 
                 <div>
@@ -191,7 +191,7 @@ $categories = $pdo->query("SELECT * FROM categories ORDER BY name")->fetchAll();
 
                 <div x-show="type === 'digital'" class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
                     <label class="block text-gray-700 text-sm font-bold mb-2">Upload File PDF</label>
-                    <input type="file" name="pdf_file" accept=".pdf" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                    <input type="file" name="pdf_file" accept=".pdf" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-icy_blue-100 file:text-mauve-900 hover:file:bg-icy_blue-200">
                     <p class="text-xs text-gray-500 mt-2">Format wajib .pdf. <?= $book && $book['file_path'] ? 'Biarkan kosong jika tidak ingin mengganti file.' : '' ?></p>
                     <?php if ($book && $book['file_path']): ?>
                         <div class="mt-2 text-sm text-green-600">File saat ini: <?= htmlspecialchars($book['file_path']) ?></div>
@@ -205,14 +205,14 @@ $categories = $pdo->query("SELECT * FROM categories ORDER BY name")->fetchAll();
                             <img src="../uploads/covers/<?= htmlspecialchars($book['cover_image']) ?>" class="h-32 object-cover rounded">
                         </div>
                     <?php endif; ?>
-                    <input type="file" name="cover_image" accept="image/*" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                    <input type="file" name="cover_image" accept="image/*" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-icy_blue-100 file:text-mauve-900 hover:file:bg-icy_blue-200">
                 </div>
             </div>
         </div>
 
         <div class="flex items-center justify-end mt-8">
             <a href="books.php" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded mr-4 transition">Batal</a>
-            <button type="submit" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-6 rounded transition">
+            <button type="submit" class="bg-baby_pink-600 hover:bg-baby_pink-700 text-white font-bold py-2 px-6 rounded transition">
                 <?= $book ? 'Update Buku' : 'Simpan Buku' ?>
             </button>
         </div>

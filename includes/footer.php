@@ -1,17 +1,25 @@
     </main>
     <?php
     $footer_name = isset($site_name) ? $site_name : (function_exists('getSetting') && isset($pdo) ? getSetting($pdo, 'library_name', 'Perpustakaan Hybrid') : 'Perpustakaan Hybrid');
+    $footer_logo = isset($site_logo) ? $site_logo : (function_exists('getSetting') && isset($pdo) ? getSetting($pdo, 'library_logo', '') : '');
     $footer_addr = function_exists('getSetting') && isset($pdo) ? getSetting($pdo, 'library_address', 'Kalurahan Pondokrejo, Sleman, Daerah Istimewa Yogyakarta') : 'Kalurahan Pondokrejo, Sleman, Daerah Istimewa Yogyakarta';
     $footer_email = function_exists('getSetting') && isset($pdo) ? getSetting($pdo, 'library_email', '') : '';
     ?>
     <footer class="bg-mauve-900 text-white py-8">
         <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8">
             <div>
-                <h3 class="text-xl font-bold text-white mb-4"><?= htmlspecialchars($footer_name) ?></h3>
-                <p class="text-sm">
-                    Membuka jendela dunia melalui koleksi fisik dan digital.
-                    Belajar tanpa batas, di mana saja dan kapan saja.
-                </p>
+                <div class="flex items-start gap-4">
+                    <?php if (!empty($footer_logo)): ?>
+                        <img src="<?= BASE_URL ?>uploads/logo/<?= htmlspecialchars($footer_logo) ?>" class="h-12 w-12 object-contain flex-shrink-0" alt="Logo">
+                    <?php endif; ?>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2"><?= htmlspecialchars($footer_name) ?></h3>
+                        <p class="text-sm">
+                            Membuka jendela dunia melalui koleksi fisik dan digital.
+                            Belajar tanpa batas, di mana saja dan kapan saja.
+                        </p>
+                    </div>
+                </div>
             </div>
             <div>
                 <h3 class="text-xl font-bold text-white mb-4">Kontak Kami</h3>
